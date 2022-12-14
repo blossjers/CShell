@@ -1,0 +1,70 @@
+№3
+
+#include <iostream>
+#include <time.h>
+#include <stdlib.h>
+
+using namespace std;
+
+int main() {
+		int change;
+		int m[7];
+		int min=1;
+		int max=70;
+		srand(time(NULL));
+		for (int i = 0; i < 7; i++) {
+			m[i] = min + rand() % (max - min + 1);
+		}
+	
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 6; j++) {
+				if (m[j] > m[j + 1]) {
+					change = m[j];
+					m[j] = m[j + 1];
+					m[j + 1] = change;
+				}
+			}
+		}
+		change = m[0];
+		m[0] = m[6];
+		m[6] = change;
+
+		for (int i = 0; i < 7; i++) {
+			cout << m[i] << ' ';
+		}
+
+	}
+
+
+№4
+
+#include <iostream>
+#include <time.h>
+#include <stdlib.h>
+
+using namespace std;
+
+int Number() {
+	int x;
+	cout << " Enter any number: ";
+	cin >> x;
+	return x;
+}
+
+int main() {
+	int A = Number();
+	int numberOf=0;
+	int m[7];
+	int min = 1;
+	int max = 33;
+	srand(time(NULL));
+	for (int i = 0; i <7; i++) {
+		m[i]= min + rand() % (max - min + 1);
+	}
+	for (int i = 0; i < 7; i++) {
+		if (A < m[i])
+			numberOf++;
+	}
+	cout << "Number elements greater than A -  " << numberOf << endl;
+	system("pause");
+}
